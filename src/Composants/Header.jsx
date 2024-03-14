@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/hery-removebg.png";
+import image from "../assets/images.png";
 
 function Header() {
   const style = { height: "300px", width: "300px" };
@@ -7,7 +8,7 @@ function Header() {
     <div className=" italic max-w-5xl mx-auto justify-center flex flex-col items-center">
       <div className="max-w-5xl mx-auto flex">
         <img
-          src={logo}
+          src={image}
           alt="Sary"
           style={style}
           className=" my-8 rounded-full  bg-gradient-to-r from-gray-900 to-gray-900 w-"

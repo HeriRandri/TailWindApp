@@ -93,7 +93,7 @@ let Input = ({ value, onChange, placeholder, type }) => {
   return (
     <div>
       <input
-        className="text-white h-10 border-solid rounded-lg p-5 bg-transparent border-b-2 outline-none lg:w-96  sm:w-60 "
+        className="text-white h-10 border-solid rounded-lg p-5 bg-transparent border-b-2 outline-none lg:w-96  sm:w-60 hover:shadow-md hover:shadow-green-500/40 "
         type={type}
         value={value}
         onChange={onChange}
@@ -106,7 +106,7 @@ let Input = ({ value, onChange, placeholder, type }) => {
 let Texterea = () => {
   return (
     <div>
-      <textarea className="border rounded lg:w-96  sm:w-60 bg-transparent border-b-2 outline-none border-t-0"></textarea>
+      <textarea className="text-white  hover:shadow-md hover:shadow-green-500/40 border rounded lg:w-96  sm:w-60 bg-transparent border-b-2 outline-none border-t-0"></textarea>
     </div>
   );
 };
@@ -116,7 +116,7 @@ let Button = () => {
     <div>
       <button
         type="submit"
-        className="border rounded p-2 bg-transparent border-b-4 text-white font-semibold bg-green-600"
+        className="hover:shadow-green-500/40 hover:shadow-2xl border rounded p-2 bg-transparent border-b-4 text-white font-semibold bg-green-600"
       >
         {" "}
         submit

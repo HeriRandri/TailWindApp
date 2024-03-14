@@ -2,65 +2,83 @@ import React, { useState } from "react";
 import dev from "../assets/imgSvg/dev.svg";
 import github from "../assets/imgSvg/github.svg";
 import like from "../assets/imgSvg/linkedin.svg";
+import Hamburger from "hamburger-react";
 
 export default function Navbar() {
-  const [click, setClcik] = useState(false);
-  const handleClick = () => {
-    setClcik(!click);
+  const [click, setClick] = useState(false);
+
+  const handleToggle = () => {
+    setClick(!click);
   };
+
   return (
     <div>
-      <header className=" top-0 w-full  ">
+      <header className="top-0 w-full">
         <nav
           id="main-nav"
-          className=" text-gray-100 bg-slate-800 max-w-5xl mx-auto font-sans p-6 flex items-center justify-between shadow-lg shadow-slate-900/60 border-b-2 rounded-lg"
+          className={`text-gray-100 bg-slate-800 max-w-5xl mx-auto font-sans p-6 flex items-center justify-between shadow-lg shadow-slate-900/60 border-b-2 rounded-lg ${click ? "flex-col" : "flex-row"}`}
         >
-          <div className="flex">
+          <div className="flex items-center">
             <a href="#" className="text-lg lg:text-2xl logo font-bold">
               Hery
             </a>
-            <img src={dev} style={{ width: "30px", height: "30px" }} />
+            <img
+              src={dev}
+              style={{ width: "30px", height: "30px" }}
+              alt="dev"
+            />
           </div>
-          <button
-            onClick={handleClick}
-            aria-label="toggle button"
-            aria-expand="false"
-            className="cursor-pointer w-7 md:hidden"
+          <div className="lg:hidden">
+            <Hamburger toggled={click} toggle={handleToggle} />
+          </div>
+          <ul
+            className={`lg:flex lg:justify-end ${click ? "flex-col mt-4" : "hidden lg:flex"}`}
           >
-            {click ? "Menu" : "Close"}
-          </button>
-          <ul className="w-full absolute top-full left-0 -translate-y-full -z-10  border-b border-gray-200 flex flex-col items-center md:static md:z-10 md:w-min md:transform-none md:border-none md:flex-row mx-8">
-            <li className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg bg-gray-600 p-8 ">
+            <li className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg bg-gray-600 p-2 md:p-8">
               <a
                 href="/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm uppercase font-semibold w-full hover:text-emerald-500"
               >
                 Home
               </a>
             </li>
-            <li className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg bg-gray-600 p-8">
+            <li className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg bg-gray-600 p-2 md:p-8">
               <a
                 href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm uppercase font-semibold w-full hover:text-emerald-500"
               >
                 Contact
               </a>
             </li>
             <li>
-              <a href="/linkedin">
+              <a
+                href="https://www.linkedin.com/in/nandrianina-randri-949727239/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={like}
                   style={{ width: "30px" }}
-                  className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg "
+                  alt="linkedin"
+                  className="py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg p-2"
                 />
               </a>
             </li>
             <li className="ms-3">
-              <a href="/github">
+              <a
+                href="https://github.com/HeriRandri"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={github}
                   style={{ width: "30px" }}
-                  className=" mr-8 py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg  "
+                  alt="github"
+                  className="mr-8 py-4 md:py-0 md:mr-6 cursor-pointer border-solid rounded-lg p-2"
                 />
               </a>
             </li>
